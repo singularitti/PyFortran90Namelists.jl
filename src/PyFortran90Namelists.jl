@@ -1,5 +1,6 @@
 module PyFortran90Namelists
 
-greet() = print("Hello World!")
+include("build.jl")
+include("init.jl")
 
 end # module
