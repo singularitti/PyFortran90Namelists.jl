@@ -57,5 +57,5 @@ function fstring(v::Float64, scientific::Bool = false)
     return scientific ? replace(str, r"e"i => "d") : str
 end
 fstring(v::Bool) = v ? ".true." : ".false."
-fstring(v::Union{AbstractString,AbstractChar}) = "'$v'"
+fstring(v::Union{AbstractString,AbstractChar}) = "'" * v * "'"
 # fstring(::Namelist)  # TODO:
