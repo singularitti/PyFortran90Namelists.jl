@@ -1,4 +1,8 @@
-# PyFortran90Namelists.jl
+```@meta
+CurrentModule = PyFortran90Namelists
+```
+
+# PyFortran90Namelists
 
 ```@index
 ```
