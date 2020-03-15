@@ -59,7 +59,3 @@ end
 fstring(v::Bool) = v ? ".true." : ".false."
 fstring(v::Union{AbstractString,AbstractChar}) = "'$v'"
 # fstring(::Namelist)  # TODO:
-
-function Base.string(s::FortranData)
-    return string(s.data)
-end
