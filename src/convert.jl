@@ -47,19 +47,19 @@ function Base.parse(::Type{T}, s::FortranData) where {T<:AbstractString}
     return string(replace(content, repeat(quotation_mark, 2) => quotation_mark))
 end
 
-fstring(v::Int) = FortranData(string(v))
+fstring(v::Int) = FortranData(string(v)) |> string
 function fstring(v::Float32; scientific::Bool = false)
     str = string(v)
     scientific && return FortranData(replace(str, r"f"i => "e"))
-    return FortranData(str)
+    return FortranData(str) |> string
 end
 function fstring(v::Float64; scientific::Bool = false)
     str = string(v)
     scientific && return FortranData(replace(str, r"e"i => "d"))
-    return FortranData(string(v))
+    return FortranData(string(v)) |> string
 end
-fstring(v::Bool) = v ? FortranData(".true.") : FortranData(".false.")
-fstring(v::AbstractString) = FortranData("'$v'")
+fstring(v::Bool) = string(v ? FortranData(".true.") : FortranData(".false."))
+fstring(v::Union{AbstractString,AbstractChar}) = FortranData("'$v'") |> string
 
 function Base.string(s::FortranData)
     return string(s.data)
