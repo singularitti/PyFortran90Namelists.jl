@@ -60,6 +60,7 @@ function fstring(v::Float64; scientific::Bool = false)
 end
 fstring(v::Bool) = string(v ? FortranData(".true.") : FortranData(".false."))
 fstring(v::Union{AbstractString,AbstractChar}) = FortranData("'$v'") |> string
+# fstring(::Namelist)  # TODO:
 
 function Base.string(s::FortranData)
     return string(s.data)
