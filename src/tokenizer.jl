@@ -7,7 +7,7 @@ export Tokenizer, update_chars, lex
 mutable struct Tokenizer
     o::PyObject
 end
-Tokenizer() = Tokenizer(f90nml.Tokenizer())
+Tokenizer() = Tokenizer(f90nml.tokenizer.Tokenizer())
 
 update_chars(tk::Tokenizer) = tk.update_chars()
 
