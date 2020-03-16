@@ -47,7 +47,7 @@ function Base.parse(::Type{T}, s::FortranData) where {T<:AbstractString}
     return string(replace(content, repeat(quotation_mark, 2) => quotation_mark))
 end
 
-fstring(v::Int) = FortranData(string(v)) |> string
+fstring(v::Integer) = FortranData(string(v)) |> string
 function fstring(v::Float32; scientific::Bool = false)
     str = string(v)
     scientific && return FortranData(replace(str, r"f"i => "e"))
