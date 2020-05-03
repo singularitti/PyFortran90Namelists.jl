@@ -10,7 +10,7 @@ export f90nml
 const f90nml = PyNULL()
 
 function __init__()
-    copy!(f90nml, pyimport_conda("f90nml", "f90nml"))
+    copy!(f90nml, pyimport_conda("f90nml", "f90nml", "conda-forge"))
     # Code from https://github.com/JuliaPy/PyPlot.jl/blob/caf7f89/src/init.jl#L168-L173
     vers = f90nml.__version__
     global version = try
