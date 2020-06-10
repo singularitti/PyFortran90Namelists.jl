@@ -1,5 +1,3 @@
-using Compat: isnothing
-
 export FortranData, fstring, @f_str
 
 struct FortranData{T<:AbstractString}
@@ -41,10 +39,13 @@ end
 function Base.parse(::Type{T}, s::FortranData) where {T<:AbstractString}
     str = s.data
     m = match(r"([\"'])((?:\\\1|.)*?)\1", str)
-    isnothing(m) && throw(Meta.ParseError("$str is not a valid string!"))
-    quotation_mark, content = m.captures
-    # Replace escaped strings
-    return string(replace(content, repeat(quotation_mark, 2) => quotation_mark))
+    if m === nothing
+        throw(Meta.ParseError("$str is not a valid string!"))
+    else
+        quotation_mark, content = m.captures
+        # Replace escaped strings
+        return string(replace(content, repeat(quotation_mark, 2) => quotation_mark))
+    end
 end
 
 fstring(v::Integer) = string(v)
