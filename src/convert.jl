@@ -1,24 +1,15 @@
-export FortranData, fstring, @f_str
+export fparse, fstring
 
-struct FortranData{T<:AbstractString}
-    data::T
+function fparse(::Type{T}, s::AbstractString) where {T<:Integer}
+    return parse(T, s)
 end
-
-macro f_str(str)
-    return :(FortranData($str))
+function fparse(::Type{T}, s::AbstractString) where {T<:Float32}
+    return parse(T, replace(lowercase(s), r"(?<=[^e])(?=[+-])" => "f"))
 end
-
-function Base.parse(::Type{T}, s::FortranData) where {T<:Integer}
-    return parse(T, s.data)
+function fparse(::Type{T}, s::AbstractString) where {T<:Float64}
+    return parse(T, replace(lowercase(s), r"d"i => "e"))
 end
-function Base.parse(::Type{T}, s::FortranData) where {T<:Float32}
-    return parse(T, replace(lowercase(s.data), r"(?<=[^e])(?=[+-])" => "f"))
-end
-function Base.parse(::Type{T}, s::FortranData) where {T<:Float64}
-    return parse(T, replace(lowercase(s.data), r"d"i => "e"))
-end
-function Base.parse(::Type{Complex{T}}, s::FortranData) where {T<:AbstractFloat}
-    str = s.data
+function fparse(::Type{Complex{T}}, str::AbstractString) where {T<:AbstractFloat}
     if first(str) == '(' && last(str) == ')' && length(split(str, ',')) == 2
         re, im = split(str[2:end-1], ',', limit = 2)
         return Complex(parse(T, re), parse(T, im))
@@ -26,8 +17,8 @@ function Base.parse(::Type{Complex{T}}, s::FortranData) where {T<:AbstractFloat}
         throw(Meta.ParseError("$str must be in complex number form (x, y)."))
     end
 end
-function Base.parse(::Type{Bool}, s::FortranData)
-    str = lowercase(s.data)
+function fparse(::Type{Bool}, s::AbstractString)
+    str = lowercase(s)
     if str in (".true.", ".t.", "true", 't')
         return true
     elseif str in (".false.", ".f.", "false", 'f')
@@ -36,8 +27,7 @@ function Base.parse(::Type{Bool}, s::FortranData)
         throw(Meta.ParseError("$str is not a valid logical constant."))
     end
 end
-function Base.parse(::Type{T}, s::FortranData) where {T<:AbstractString}
-    str = s.data
+function fparse(::Type{String}, str::AbstractString)
     m = match(r"([\"'])((?:\\\1|.)*?)\1", str)
     if m === nothing
         throw(Meta.ParseError("$str is not a valid string!"))
