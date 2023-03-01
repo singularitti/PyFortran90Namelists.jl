@@ -11,7 +11,7 @@ function fparse(::Type{T}, s::AbstractString) where {T<:Float64}
 end
 function fparse(::Type{Complex{T}}, str::AbstractString) where {T<:AbstractFloat}
     if first(str) == '(' && last(str) == ')' && length(split(str, ',')) == 2
-        re, im = split(str[2:end-1], ',', limit = 2)
+        re, im = split(str[2:(end - 1)], ','; limit=2)
         return Complex(parse(T, re), parse(T, im))
     else
         throw(Meta.ParseError("$str must be in complex number form (x, y)."))
@@ -39,11 +39,11 @@ function fparse(::Type{String}, str::AbstractString)
 end
 
 fstring(v::Integer) = string(v)
-function fstring(v::Float32; scientific::Bool = false)
+function fstring(v::Float32; scientific::Bool=false)
     str = string(v)
     return scientific ? replace(str, r"f"i => "e") : str
 end
-function fstring(v::Float64, scientific::Bool = false)
+function fstring(v::Float64, scientific::Bool=false)
     str = string(v)
     return scientific ? replace(str, r"e"i => "d") : str
 end

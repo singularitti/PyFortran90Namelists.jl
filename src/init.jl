@@ -4,7 +4,7 @@ using Conda: add_channel
 using PyCall: PyNULL, PyError, PyObject, PyAny, pyimport_conda, pycall
 using VersionParsing: vparse
 # Extending methods
-import PyCall
+using PyCall: PyCall
 
 export f90nml
 
@@ -16,7 +16,7 @@ function __init__()
     copy!(f90nml, pyimport_conda("f90nml", "f90nml", "conda-forge"))
     # Code from https://github.com/JuliaPy/PyPlot.jl/blob/caf7f89/src/init.jl#L168-L173
     vers = f90nml.__version__
-    global version = try
+    return global version = try
         vparse(vers)
     catch
         v"0.0.0" # fallback
