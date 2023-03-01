@@ -6,11 +6,11 @@ DocMeta.setdocmeta!(PyFortran90Namelists, :DocTestSetup, :(using PyFortran90Name
 makedocs(;
     modules=[PyFortran90Namelists],
     authors="singularitti <singularitti@outlook.com> and contributors",
-    repo="https://github.com/MineralsCloud/PyFortran90Namelists.jl/blob/{commit}{path}#{line}",
+    repo="https://github.com/singularitti/PyFortran90Namelists.jl/blob/{commit}{path}#{line}",
     sitename="PyFortran90Namelists.jl",
     format=Documenter.HTML(;
         prettyurls=get(ENV, "CI", "false") == "true",
-        canonical="https://MineralsCloud.github.io/PyFortran90Namelists.jl",
+        canonical="https://singularitti.github.io/PyFortran90Namelists.jl",
         edit_link="main",
         assets=String[],
     ),
@@ -20,6 +20,6 @@ makedocs(;
 )
 
 deploydocs(;
-    repo="github.com/MineralsCloud/PyFortran90Namelists.jl",
+    repo="github.com/singularitti/PyFortran90Namelists.jl",
     devbranch="main",
 )

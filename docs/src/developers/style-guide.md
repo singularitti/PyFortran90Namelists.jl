@@ -32,7 +32,7 @@ If not following, your pull requests may not be accepted.
 PyFortran90Namelists uses [JuliaFormatter](https://github.com/domluna/JuliaFormatter.jl) as
 an auto-formatting tool.
 
-We use the options contained in [`.JuliaFormatter.toml`](https://github.com/MineralsCloud/PyFortran90Namelists.jl/blob/main/.JuliaFormatter.toml).
+We use the options contained in [`.JuliaFormatter.toml`](https://github.com/singularitti/PyFortran90Namelists.jl/blob/main/.JuliaFormatter.toml).
 
 To format your code, `cd` to the PyFortran90Namelists directory, then run:
 

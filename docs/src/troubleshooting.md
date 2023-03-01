@@ -7,11 +7,11 @@ Depth = 3
 
 This page collects some possible errors you may encounter and trick how to fix them.
 If you have some questions about how to use this code, you are welcome to
-[discuss with us](https://github.com/MineralsCloud/PyFortran90Namelists.jl/discussions).
+[discuss with us](https://github.com/singularitti/PyFortran90Namelists.jl/discussions).
 
 If you have additional tips, please either
-[report an issue](https://github.com/MineralsCloud/PyFortran90Namelists.jl/issues/new) or
-[submit a PR](https://github.com/MineralsCloud/PyFortran90Namelists.jl/compare) with suggestions.
+[report an issue](https://github.com/singularitti/PyFortran90Namelists.jl/issues/new) or
+[submit a PR](https://github.com/singularitti/PyFortran90Namelists.jl/compare) with suggestions.
 
 ## Installation problems
 

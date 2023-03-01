@@ -4,12 +4,12 @@ CurrentModule = PyFortran90Namelists
 
 # PyFortran90Namelists
 
-Documentation for [PyFortran90Namelists](https://github.com/MineralsCloud/PyFortran90Namelists.jl).
+Documentation for [PyFortran90Namelists](https://github.com/singularitti/PyFortran90Namelists.jl).
 
 See the [Index](@ref main-index) for the complete list of documented functions
 and types.
 
-The code is [hosted on GitHub](https://github.com/MineralsCloud/PyFortran90Namelists.jl),
+The code is [hosted on GitHub](https://github.com/singularitti/PyFortran90Namelists.jl),
 with some continuous integration services to test its validity.
 
 This repository is created and maintained by [@singularitti](https://github.com/singularitti).
@@ -32,8 +32,8 @@ import Pkg; Pkg.add("PyFortran90Namelists")
 
 ## Documentation
 
-- [**STABLE**](https://MineralsCloud.github.io/PyFortran90Namelists.jl/stable) — **documentation of the most recently tagged version.**
-- [**DEV**](https://MineralsCloud.github.io/PyFortran90Namelists.jl/dev) — _documentation of the in-development version._
+- [**STABLE**](https://singularitti.github.io/PyFortran90Namelists.jl/stable) — **documentation of the most recently tagged version.**
+- [**DEV**](https://singularitti.github.io/PyFortran90Namelists.jl/dev) — _documentation of the in-development version._
 
 ## Project status
 
@@ -43,10 +43,10 @@ macOS, and Windows.
 ## Questions and contributions
 
 Usage questions can be posted on
-[our discussion page](https://github.com/MineralsCloud/PyFortran90Namelists.jl/discussions).
+[our discussion page](https://github.com/singularitti/PyFortran90Namelists.jl/discussions).
 
 Contributions are very welcome, as are feature requests and suggestions. Please open an
-[issue](https://github.com/MineralsCloud/PyFortran90Namelists.jl/issues)
+[issue](https://github.com/singularitti/PyFortran90Namelists.jl/issues)
 if you encounter any problems. The [Contributing](@ref) page has
 a few guidelines that should be followed when opening pull requests and contributing code.
 
