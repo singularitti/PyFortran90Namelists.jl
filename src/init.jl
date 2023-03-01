@@ -8,14 +8,12 @@ using PyCall: PyCall
 
 export f90nml
 
-const f90nml = PyNULL()
-
-add_channel("conda-forge")
+const f90nml = pynew()
 
 function __init__()
-    copy!(f90nml, pyimport_conda("f90nml", "f90nml", "conda-forge"))
-    # Code from https://github.com/JuliaPy/PyPlot.jl/blob/caf7f89/src/init.jl#L168-L173
-    vers = f90nml.__version__
+    pycopy!(f90nml, pyimport("f90nml"))
+    # Code from https://github.com/stevengj/PythonPlot.jl/blob/326bbad/src/init.jl#LL149C5-L149C54
+    vers = pyconvert(String, f90nml.__version__)
     return global version = try
         vparse(vers)
     catch
