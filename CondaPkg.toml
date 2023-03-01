@@ -1,0 +1,5 @@
+channels = ["conda-forge"]
+
+[deps.f90nml]
+channel = "conda-forge"
+version = ">=1"
