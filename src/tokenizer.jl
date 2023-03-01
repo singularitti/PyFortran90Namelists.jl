@@ -1,11 +1,5 @@
-using PyFortran90Namelists: f90nml, @pyinterface
-
-mutable struct Tokenizer
-    o::Py
-end
+@pymutable Tokenizer o
 Tokenizer() = Tokenizer(f90nml.tokenizer.Tokenizer())
-
-@pyinterface Tokenizer
 
 update_chars(tk::Tokenizer) = tk.update_chars()
 
